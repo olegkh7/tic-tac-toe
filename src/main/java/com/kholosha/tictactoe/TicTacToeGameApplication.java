@@ -29,10 +29,14 @@ public class TicTacToeGameApplication {
 //
 //    public static void game(GameController controller1, GameController controller2, GameStateManager stateManager1, GameStateManager stateManager2) throws InterruptedException {
 //
-//        var action = controller1.init();
+//        var action1 = controller1.init();
+//        var action2 = controller2.init();
+//        var t = true;
 //        while (true) {
-//            action = controller2.handleAction(action);
-//            action = controller1.handleAction(action);
+//            var action3 = controller1.handleAction(action2);
+//            action2 = controller2.handleAction(t ? action1: action3);
+//            action1 = action3;
+//            t = false;
 //            var table = stateManager1.getBoard();
 //            for (int i = 0; i < 3; i++) {
 //                for (int j = 0; j < 3; j++) {

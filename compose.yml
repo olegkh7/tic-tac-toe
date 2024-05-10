@@ -26,6 +26,7 @@ services:
       - DESTINATION_QUEUE=q1
     depends_on:
       - rabbitmq
+      - service1
 
   rabbitmq:
     image: rabbitmq:3-management

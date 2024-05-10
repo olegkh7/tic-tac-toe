@@ -21,6 +21,7 @@ public class GameController {
     }
 
     public GameControllerAction init() {
+        log.info("Initializing game");
         gameStateManager.reset();
         gameStateManager.initRandom();
         return GameControllerAction.builder()
@@ -30,6 +31,7 @@ public class GameController {
     }
 
     public GameControllerAction handleAction(GameControllerAction action) {
+        log.info("Handle action");
         return switch (action.getAction()) {
             case INIT_MOVE_ORDER -> init(action);
             case MOVE -> {
