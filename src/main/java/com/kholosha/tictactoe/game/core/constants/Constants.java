@@ -1,4 +1,4 @@
-package com.kholosha.tictactoe.game.constants;
+package com.kholosha.tictactoe.game.core.constants;
 
 public final class Constants {
 

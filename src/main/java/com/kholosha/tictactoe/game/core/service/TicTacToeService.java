@@ -1,8 +1,8 @@
-package com.kholosha.tictactoe.game.service;
+package com.kholosha.tictactoe.game.core.service;
 
-import com.kholosha.tictactoe.game.constants.GameStatus;
-import com.kholosha.tictactoe.game.model.GameStateManager;
-import com.kholosha.tictactoe.game.model.Move;
+import com.kholosha.tictactoe.game.core.constants.GameStatus;
+import com.kholosha.tictactoe.game.api.GameStateManager;
+import com.kholosha.tictactoe.game.core.model.Move;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

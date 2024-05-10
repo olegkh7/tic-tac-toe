@@ -1,7 +1,7 @@
-package com.kholosha.tictactoe.amqp;
+package com.kholosha.tictactoe.infrastracture.rabbit;
 
-import com.kholosha.tictactoe.game.constants.GameStatus;
-import com.kholosha.tictactoe.game.model.GameStateManager;
+import com.kholosha.tictactoe.game.core.constants.GameStatus;
+import com.kholosha.tictactoe.game.api.GameStateManager;
 import com.rabbitmq.client.ShutdownSignalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.connection.Connection;

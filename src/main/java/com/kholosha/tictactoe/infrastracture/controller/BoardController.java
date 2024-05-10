@@ -1,8 +1,8 @@
-package com.kholosha.tictactoe.controller;
+package com.kholosha.tictactoe.infrastracture.controller;
 
-import com.kholosha.tictactoe.game.controller.GameController;
-import com.kholosha.tictactoe.game.model.GameStateManager;
-import com.kholosha.tictactoe.game.model.GameStateRepresentation;
+import com.kholosha.tictactoe.game.api.GameController;
+import com.kholosha.tictactoe.game.api.GameStateManager;
+import com.kholosha.tictactoe.game.core.model.GameStateRepresentation;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

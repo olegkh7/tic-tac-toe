@@ -1,6 +1,6 @@
-package com.kholosha.tictactoe.game.model;
+package com.kholosha.tictactoe.game.core.model;
 
-import com.kholosha.tictactoe.game.constants.GameStatus;
+import com.kholosha.tictactoe.game.core.constants.GameStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

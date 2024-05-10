@@ -1,4 +1,4 @@
-package com.kholosha.tictactoe.game.model;
+package com.kholosha.tictactoe.game.core.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

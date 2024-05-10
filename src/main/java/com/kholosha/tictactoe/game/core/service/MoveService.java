@@ -1,10 +1,10 @@
-package com.kholosha.tictactoe.game.service;
+package com.kholosha.tictactoe.game.core.service;
 
-import com.kholosha.tictactoe.game.model.GameStateManager;
-import com.kholosha.tictactoe.game.model.Move;
+import com.kholosha.tictactoe.game.api.GameStateManager;
+import com.kholosha.tictactoe.game.core.model.Move;
 import org.springframework.stereotype.Service;
 
-import static com.kholosha.tictactoe.game.constants.Constants.EMPTY_CELL;
+import static com.kholosha.tictactoe.game.core.constants.Constants.EMPTY_CELL;
 
 @Service
 public class MoveService {

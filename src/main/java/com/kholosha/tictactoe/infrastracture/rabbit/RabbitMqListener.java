@@ -1,7 +1,7 @@
-package com.kholosha.tictactoe.amqp;
+package com.kholosha.tictactoe.infrastracture.rabbit;
 
-import com.kholosha.tictactoe.game.controller.GameController;
-import com.kholosha.tictactoe.game.controller.GameControllerAction;
+import com.kholosha.tictactoe.game.api.GameController;
+import com.kholosha.tictactoe.game.api.GameControllerAction;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

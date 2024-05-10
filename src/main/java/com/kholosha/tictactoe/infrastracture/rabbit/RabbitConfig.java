@@ -1,4 +1,4 @@
-package com.kholosha.tictactoe.amqp;
+package com.kholosha.tictactoe.infrastracture.rabbit;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;

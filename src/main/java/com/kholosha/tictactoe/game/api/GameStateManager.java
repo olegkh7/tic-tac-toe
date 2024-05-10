@@ -1,7 +1,7 @@
-package com.kholosha.tictactoe.game.model;
+package com.kholosha.tictactoe.game.api;
 
-import com.kholosha.tictactoe.game.constants.Constants;
-import com.kholosha.tictactoe.game.constants.GameStatus;
+import com.kholosha.tictactoe.game.core.constants.Constants;
+import com.kholosha.tictactoe.game.core.constants.GameStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

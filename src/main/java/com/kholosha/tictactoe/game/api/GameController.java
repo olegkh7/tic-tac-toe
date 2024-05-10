@@ -1,8 +1,7 @@
-package com.kholosha.tictactoe.game.controller;
+package com.kholosha.tictactoe.game.api;
 
-import com.kholosha.tictactoe.game.constants.GameStatus;
-import com.kholosha.tictactoe.game.model.GameStateManager;
-import com.kholosha.tictactoe.game.service.TicTacToeService;
+import com.kholosha.tictactoe.game.core.constants.GameStatus;
+import com.kholosha.tictactoe.game.core.service.TicTacToeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
