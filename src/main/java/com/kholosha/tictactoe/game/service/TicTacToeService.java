@@ -25,7 +25,6 @@ public class TicTacToeService {
     public Move makeFirstMove(GameStateManager gameStateManager) {
         var myMove = moveService.getRandomMove(gameStateManager);
         moveAndCheckForWin(gameStateManager, myMove, gameStateManager.getMySymbol());
-        gameStateManager.setStatus(GameStatus.IN_PROGRESS);
         return myMove;
     }
 
@@ -54,6 +53,7 @@ public class TicTacToeService {
             throw new IllegalArgumentException("Invalid move");
         }
         gameStateManager.setCell(move.getRow(), move.getCol(), symbol);
+        gameStateManager.setStatus(GameStatus.IN_PROGRESS);
         if (gameStateManager.getFreeCells() == 0) {
             gameStateManager.setStatus(GameStatus.DRAW);
         }

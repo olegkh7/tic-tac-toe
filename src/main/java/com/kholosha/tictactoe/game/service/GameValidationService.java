@@ -26,7 +26,7 @@ public class GameValidationService {
      * If all symbols in a row or column or diagonal are the same then return true
      */
     public boolean isWinner(GameStateManager state, char symbol) {
-        var board = state.getCopy();
+        var board = state.getBoard();
         var isWinner = false;
         for (int i = 0; i < board.length; i++) {
             isWinner = true;

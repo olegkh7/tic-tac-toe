@@ -1,6 +1,7 @@
 package com.kholosha.tictactoe.amqp;
 
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -19,6 +20,8 @@ public class RabbitConfig {
     private String listenerQueueName;
     @Value("${message.destinationQueue}")
     private String destinationQueueName;
+    @Value("${spring.rabbitmq.host}")
+    private String messageHost;
     @Value("${message.retryAttemptsCount}")
     private Integer retryAttemptsCount;
     @Value("${message.retryAttemptsDelayMillis}")
@@ -59,5 +62,12 @@ public class RabbitConfig {
         retryTemplate.setBackOffPolicy(backOffPolicy);
 
         return retryTemplate;
+    }
+
+    @Bean
+    public ConnectionFactory connectionFactory(InterruptedConnectionListener listener) {
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(messageHost);
+        connectionFactory.addConnectionListener(listener);
+        return connectionFactory;
     }
 }
