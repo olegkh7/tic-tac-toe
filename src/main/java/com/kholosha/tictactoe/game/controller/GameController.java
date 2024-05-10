@@ -47,7 +47,7 @@ public class GameController {
                             .action(Action.MOVE)
                             .build();
                 } else {
-                    var move = ticTacToeService.makeMove(action.getMove(), gameStateManager);
+                    var move = ticTacToeService.makeMoveAndAnswer(action.getMove(), gameStateManager);
                     if (gameStateManager.getStatus() != GameStatus.IN_PROGRESS && gameStateManager.getStatus() != GameStatus.NEW) {
                         if (move != null) {
                             yield GameControllerAction.builder()

@@ -3,6 +3,8 @@ package com.kholosha.tictactoe.game.service;
 import com.kholosha.tictactoe.game.constants.GameStatus;
 import com.kholosha.tictactoe.game.model.GameStateManager;
 import com.kholosha.tictactoe.game.model.Move;
+import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,10 +12,14 @@ public class TicTacToeService {
 
     private final GameValidationService gameValidationService;
     private final MoveService moveService;
+    private final int delay;
 
-    public TicTacToeService(GameValidationService gameValidationService, MoveService moveService) {
+    public TicTacToeService(GameValidationService gameValidationService,
+                            MoveService moveService,
+                            @Value("${game.answerDelayMillis}") int delay) {
         this.gameValidationService = gameValidationService;
         this.moveService = moveService;
+        this.delay = delay;
     }
 
     public Move makeFirstMove(GameStateManager gameStateManager) {
@@ -23,16 +29,21 @@ public class TicTacToeService {
         return myMove;
     }
 
-    public Move makeMove(Move move, GameStateManager gameStateManager) {
+    public Move makeMoveAndAnswer(Move move, GameStateManager gameStateManager) {
         if (!moveAndCheckForWin(gameStateManager, move, gameStateManager.getOponentSymbol())) {
             return null;
         }
-
+        delayMove();
         var myMove = moveService.getRandomMove(gameStateManager);
         if (!moveAndCheckForWin(gameStateManager, myMove, gameStateManager.getMySymbol())) {
             return null;
         }
         return myMove;
+    }
+
+    @SneakyThrows
+    void delayMove() {
+        Thread.sleep(delay);
     }
 
     private boolean moveAndCheckForWin(GameStateManager gameStateManager, Move move, char symbol) {
