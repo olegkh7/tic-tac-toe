@@ -29,7 +29,9 @@ public class RabbitMqListener {
     @RabbitListener(queues = "${message.listenerQueue}")
     public void listen(@Payload GameControllerAction action) {
         var response = gameController.handleAction(action);
-        rabbitTemplate.convertAndSend(destinationQueueName, response);
+        if (response != null) {
+            rabbitTemplate.convertAndSend(destinationQueueName, response);
+        }
     }
 
 }

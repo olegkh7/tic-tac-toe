@@ -31,7 +31,6 @@ public class GameController {
     }
 
     public GameControllerAction handleAction(GameControllerAction action) {
-        log.info("Handle action");
         return switch (action.getAction()) {
             case INIT_MOVE_ORDER -> init(action);
             case MOVE -> {
@@ -70,27 +69,18 @@ public class GameController {
             }
 
             case COMPLETE -> {
-                if (gameStateManager.getRandom() != null) {
-                    var message = "It's a " + gameStateManager.getStatus();
-                    log.info(message);
-                    gameStateManager.setRandom(null);
-                    yield GameControllerAction.builder()
-                            .action(Action.COMPLETE)
-                            .status(gameStateManager.getStatus())
-                            .build();
-                } else {
-                    yield GameControllerAction.builder()
-                            .action(Action.RESET_GAME)
-                            .build();
+                if (gameStateManager.isFinished()) {
+                    yield null;
                 }
-            }
-            case RESET_GAME -> {
-                gameStateManager.reset();
-                gameStateManager.initRandom();
+                var message = "It's a " + gameStateManager.getStatus();
+                log.info(message);
+                gameStateManager.setRandom(null);
+                gameStateManager.setFinished(true);
                 yield GameControllerAction.builder()
-                        .action(Action.INIT_MOVE_ORDER)
-                        .random(gameStateManager.getRandom())
+                        .action(Action.COMPLETE)
+                        .status(gameStateManager.getStatus())
                         .build();
+
             }
         };
     }

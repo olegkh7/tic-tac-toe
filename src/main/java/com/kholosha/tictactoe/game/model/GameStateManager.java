@@ -26,6 +26,7 @@ public class GameStateManager {
     private Integer random;
     private boolean isFirstMove;
     private int freeCells;
+    private boolean finished;
 
     @Autowired
     public GameStateManager(@Value("${game.fieldSize}") int fieldSize) {
@@ -39,6 +40,7 @@ public class GameStateManager {
     public void reset() {
         random = null;
         isFirstMove = false;
+        finished = false;
         status = GameStatus.NEW;
         board = new char[fieldSize][fieldSize];
         freeCells = fieldSize * fieldSize;
