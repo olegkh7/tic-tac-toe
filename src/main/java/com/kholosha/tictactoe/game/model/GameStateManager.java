@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Random;
 
 @Getter
@@ -66,13 +65,6 @@ public class GameStateManager {
     public void setCell(int row, int col, char symbol) {
         board[row][col] = symbol;
         freeCells--;
-    }
-
-    public char[][] getCopy() {
-        return Arrays
-                .stream(board)
-                .map(array -> Arrays.copyOf(array, array.length))
-                .toArray(char[][]::new);
     }
 
     private void initBoard() {

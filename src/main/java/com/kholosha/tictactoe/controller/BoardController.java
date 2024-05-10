@@ -2,6 +2,7 @@ package com.kholosha.tictactoe.controller;
 
 import com.kholosha.tictactoe.game.controller.GameController;
 import com.kholosha.tictactoe.game.model.GameStateManager;
+import com.kholosha.tictactoe.game.model.GameStateRepresentation;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,8 +30,8 @@ public class BoardController {
     }
 
     @GetMapping("/board")
-    public char[][] getGameSate() {
-        return gameStateManager.getCopy();
+    public GameStateRepresentation getGameSate() {
+        return new GameStateRepresentation(gameStateManager.getBoard(), gameStateManager.getStatus());
     }
 
     @PostMapping("/start")
