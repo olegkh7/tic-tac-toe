@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: tic-tac-toe-game
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: 5672
+    username: guest
+    password: guest
+
+game:
+  fieldSize: 3
+  answerDelayMillis: 5000
+
+message:
+  listenerQueue: ${LISTENER_QUEUE:q1}
+  destinationQueue: ${DESTINATION_QUEUE:q2}
+  retryAttemptsCount: 5
+  retryAttemptsDelayMillis: 5000

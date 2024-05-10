@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  service1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: test/my_app:latest
+    platform: linux/amd64
+    ports:
+      - "8081:8080"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - LISTENER_QUEUE=q1
+      - DESTINATION_QUEUE=q2
+    depends_on:
+      - rabbitmq
+
+  service2:
+    image: test/my_app:latest
+    ports:
+      - "8082:8080"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - LISTENER_QUEUE=q2
+      - DESTINATION_QUEUE=q1
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
