@@ -11,8 +11,8 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
-public class GameControllerAction {
-    private Action action;
+public class ActionPayload {
+    private ActionType actionType;
     private GameStatus status;
     private Move move;
     private Integer random;
