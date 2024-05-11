@@ -41,7 +41,7 @@ public class TicTacToeService {
     }
 
     @SneakyThrows
-    void delayMove() {
+    private void delayMove() {
         Thread.sleep(delay);
     }
 
