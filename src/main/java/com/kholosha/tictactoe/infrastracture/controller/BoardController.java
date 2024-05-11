@@ -30,7 +30,7 @@ public class BoardController {
     }
 
     @GetMapping("/board")
-    public GameStateRepresentation getGameSate() {
+    public GameStateRepresentation getGameState() {
         return new GameStateRepresentation(gameStateManager.getBoard(), gameStateManager.getStatus());
     }
 
